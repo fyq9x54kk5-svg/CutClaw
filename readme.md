@@ -4,20 +4,25 @@
 
 # Agentic Hours-Long Video Editing via Music Synchronization
 
-**AI multi-agent video editing for music-synchronized cinematic montages.**
+**🎬 Your personal editor for turning hours of footage into cinematic montages.**
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![arXiv](https://img.shields.io/badge/arXiv-paper-b31b1b.svg)](https://arxiv.org/abs/2506.08412)
+[![GitHub Stars](https://img.shields.io/github/stars/GVCLab/CutClaw?style=social)](https://github.com/GVCLab/CutClaw)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/🎬_Multi--Agent_Editing-8A2BE2?style=flat-square" alt="Multi-Agent Editing" />
-  <img src="https://img.shields.io/badge/🎵_Music_Synchronization-00B894?style=flat-square" alt="Music Synchronization" />
-  <img src="https://img.shields.io/badge/🖥️_Streamlit_UI-FF6B6B?style=flat-square" alt="Streamlit UI" />
-  <img src="https://img.shields.io/badge/⚡_Cache_Reuse-FFC107?style=flat-square" alt="Cache Reuse" />
-  <img src="https://img.shields.io/badge/🎞️_Film%2FVlog_Support-0984E3?style=flat-square" alt="Film/Vlog Support" />
-  <img src="https://img.shields.io/badge/🔌_OpenAI--Compatible_APIs-6C5CE7?style=flat-square" alt="OpenAI-Compatible APIs" />
+  <img src="https://img.shields.io/badge/🎞️_Hours--Long_Footage-1f6feb?style=flat-square" alt="Hours-Long Footage" />
+  <img src="https://img.shields.io/badge/🎵_Music--Beat_Sync-00b894?style=flat-square" alt="Music Beat Sync" />
+  <img src="https://img.shields.io/badge/✍️_Instruction--Following-f59f00?style=flat-square" alt="Instruction Following" />
+  <img src="https://img.shields.io/badge/🖱️_One--Click_Editing-e17055?style=flat-square" alt="One-Click Editing" />
+  <img src="https://img.shields.io/badge/🔌_LiteLLM--Powered-6c5ce7?style=flat-square" alt="LiteLLM Powered" />
 </p>
 
-[Quick Start](#-quick-start) • [Output Paths](#-where-results-are-saved) • [Config](#️-config-srcconfigpy) • [Troubleshooting](#️-troubleshooting)
+<p>
+	<a href="readme.md"><img src="https://img.shields.io/badge/English-1a1a2e?style=for-the-badge"></a>
+    <a href="readme_zh.md"><img src="https://img.shields.io/badge/中文版-1a1a2e?style=for-the-badge"></a>
+</p>
+
+[Overview](#-overview) • [Features](#-key-features) • [Gallery](#️-gallery) • [Quick Start](#-quick-start) • [Troubleshooting](#️-troubleshooting) • [Citation](#-citation)
 
 </div>
 
@@ -27,7 +32,7 @@
 
 CutClaw is an end-to-end editing system for long-form footage + music.
 
-It first deconstructs raw video/audio into structured signals, then uses a multi-agent pipeline to plan shots (`shot_plan`), select clip timestamps (`shot_point`), and validate final quality before rendering.
+It first deconstructs raw video/audio into structured captions, then uses a multi-agent pipeline to plan shots (`shot_plan`), select clip timestamps (`shot_point`), and validate final quality before rendering.
 
 ![CutClaw Pipeline](asset/method.png)
 
@@ -77,6 +82,53 @@ Extracts musical beats and energy signals to build rhythm-aware cuts that perfec
 </table>
 
 ---
+
+
+## 🖼️ Gallery
+
+<table width="100%">
+<tr>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/0eac0a2c-05ec-4eb9-b540-2752e9c35289" controls width="100%"></video>
+</td>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/0e191afb-aea7-4fcf-98d2-7b4b545f1a89" controls width="100%"></video>
+</td>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/59ccdd42-b4c8-4031-aa2c-3d7523b19024" controls width="100%"></video>
+</td>
+</tr>
+</table>
+
+<table width="100%">
+<tr>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/e41da312-9c20-4796-a600-a9f4534a7cd8" controls width="100%"></video>
+</td>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/c2212275-2a5f-42f5-9841-34e2573c8835" controls width="100%"></video>
+</td>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/1eb71636-f6ee-4a35-9a18-4f3e3f8eb5e7" controls width="100%"></video>
+</td>
+</tr>
+</table>
+
+<table width="100%">
+<tr>
+<td align="center" width="33.33%">
+  <video src="https://github.com/user-attachments/assets/ac86d0c9-b652-4ec0-8527-1ebb0f465e7f" controls width="100%"></video>
+</td>
+<td align="center" width="33.33%">
+  <video src="https://github.com/user-attachments/assets/970fd0c4-38c6-4674-8e5b-acfe4acba6ac" controls width="100%"></video>
+</td>
+<td align="center" width="33.33%">
+  <video src="https://github.com/user-attachments/assets/8b02d26f-9b15-4961-b17a-74f915329021" controls width="100%"></video>
+</td>
+</tr>
+</table>
+
+----
 
 ## 🚀 Quick Start
 
@@ -201,51 +253,8 @@ python render/render_video.py \
 1. **API latency** — the pipeline sends a large number of concurrent requests to vision/language APIs. Speed is heavily dependent on your API provider's response time and rate limits.
 2. **First-run Footage Deconstruction** — the first time you process a video, shot detection, captioning, ASR, and scene analysis all run from scratch. This is a one-time cost per video; subsequent edits with the same footage reuse the cached results and are much faster.
 3. **GPU acceleration** — a CUDA-capable GPU significantly speeds up video decoding and encoding. We recommend building Decord with NVDEC support (see Install section).
+4. **Video codec compatibility** — if the pipeline appears to hang during video-related steps, the source video's encoding may be the cause. In our testing, videos encoded with `libx264` worked reliably.
 
-
-## 🖼️ Gallery
-
-<table width="100%">
-<tr>
-<td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/0eac0a2c-05ec-4eb9-b540-2752e9c35289" controls width="100%"></video>
-</td>
-<td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/0e191afb-aea7-4fcf-98d2-7b4b545f1a89" controls width="100%"></video>
-</td>
-<td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/59ccdd42-b4c8-4031-aa2c-3d7523b19024" controls width="100%"></video>
-</td>
-</tr>
-</table>
-
-<table width="100%">
-<tr>
-<td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/e41da312-9c20-4796-a600-a9f4534a7cd8" controls width="100%"></video>
-</td>
-<td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/c2212275-2a5f-42f5-9841-34e2573c8835" controls width="100%"></video>
-</td>
-<td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/1eb71636-f6ee-4a35-9a18-4f3e3f8eb5e7" controls width="100%"></video>
-</td>
-</tr>
-</table>
-
-<table width="100%">
-<tr>
-<td align="center" width="33.33%">
-  <video src="https://github.com/user-attachments/assets/ac86d0c9-b652-4ec0-8527-1ebb0f465e7f" controls width="100%"></video>
-</td>
-<td align="center" width="33.33%">
-  <video src="https://github.com/user-attachments/assets/970fd0c4-38c6-4674-8e5b-acfe4acba6ac" controls width="100%"></video>
-</td>
-<td align="center" width="33.33%">
-  <video src="https://github.com/user-attachments/assets/8b02d26f-9b15-4961-b17a-74f915329021" controls width="100%"></video>
-</td>
-</tr>
-</table>
 
 
 
