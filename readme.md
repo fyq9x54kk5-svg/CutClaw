@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="asset/teaser.png" alt="CutClaw teaser" width="50%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="asset/CutClaw_dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="asset/Cutclaw_light.png" />
+  <img src="asset/Cutclaw_light.png" alt="CutClaw teaser" width="50%" />
+</picture>
 
 ## 🦞CutClaw: Agentic Hours-Long Video Editing via Music Synchronization
 
@@ -42,7 +46,7 @@ It first deconstructs raw video/audio into structured captions, then uses a mult
 
 <table align="center" width="100%" style="border: none; table-layout: fixed;">
 <tr>
-<td width="25%" align="center" style="vertical-align: top; padding: 16px;">
+<td width="25%" align="center" valign="top" style="padding: 16px;">
 
 ### 🎬 **One-Click Deconstruction**
 
@@ -51,7 +55,7 @@ It first deconstructs raw video/audio into structured captions, then uses a mult
 Effortlessly transforms hours-long raw video and audio into structured, searchable assets with a single click.
 
 </td>
-<td width="25%" align="center" style="vertical-align: top; padding: 16px;">
+<td width="25%" align="center" valign="top" style="padding: 16px;">
 
 ### 🎯 **Instruction Control**
 
@@ -60,7 +64,7 @@ Effortlessly transforms hours-long raw video and audio into structured, searchab
 Requires only one text instruction to steer the editing style—easily generating fast-paced character montages or slow-paced emotional narratives.
 
 </td>
-<td width="25%" align="center" style="vertical-align: top; padding: 16px;">
+<td width="25%" align="center" valign="top" style="padding: 16px;">
 
 ### 📱 **Smart Auto-Cropping**
 
@@ -69,7 +73,7 @@ Requires only one text instruction to steer the editing style—easily generatin
 Content-aware cropping automatically identifies core subjects and adjusts aspect ratios to fit various social platforms.
 
 </td>
-<td width="25%" align="center" style="vertical-align: top; padding: 16px;">
+<td width="25%" align="center" valign="top" style="padding: 16px;">
 
 ### 🎵 **Music-Aware Sync**
 
@@ -89,13 +93,13 @@ Extracts musical beats and energy signals to build rhythm-aware cuts that perfec
 <table width="100%">
 <tr>
 <td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/0eac0a2c-05ec-4eb9-b540-2752e9c35289" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/6e5d6ce8-2fd6-4acf-92a4-620784d56bca" controls width="100%"></video>
 </td>
 <td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/0e191afb-aea7-4fcf-98d2-7b4b545f1a89" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/5fa41312-786b-4f63-afe3-abedf7e03e05" controls width="100%"></video>
 </td>
 <td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/59ccdd42-b4c8-4031-aa2c-3d7523b19024" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/024e6fad-b154-4864-80fe-601e9e9b56c0" controls width="100%"></video>
 </td>
 </tr>
 </table>
@@ -103,27 +107,27 @@ Extracts musical beats and energy signals to build rhythm-aware cuts that perfec
 <table width="100%">
 <tr>
 <td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/e41da312-9c20-4796-a600-a9f4534a7cd8" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/f87c7755-f777-4802-9f59-ab851a4b7881" controls width="100%"></video>
 </td>
 <td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/c2212275-2a5f-42f5-9841-34e2573c8835" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/0dde3dc0-440b-4e18-82b2-970a1ee11fa5" controls width="100%"></video>
 </td>
 <td align="center" width="33%">
-  <video src="https://github.com/user-attachments/assets/1eb71636-f6ee-4a35-9a18-4f3e3f8eb5e7" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/68f635d7-446e-4f3c-b8ad-a0d0baed9e7b" controls width="100%"></video>
 </td>
 </tr>
 </table>
 
 <table width="100%">
 <tr>
-<td align="center" width="33.33%">
-  <video src="https://github.com/user-attachments/assets/ac86d0c9-b652-4ec0-8527-1ebb0f465e7f" controls width="100%"></video>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/1c55d0df-5811-432b-a6e8-9458e102dd96" controls width="100%"></video>
 </td>
-<td align="center" width="33.33%">
-  <video src="https://github.com/user-attachments/assets/970fd0c4-38c6-4674-8e5b-acfe4acba6ac" controls width="100%"></video>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/05183151-c4c5-455d-97bf-3cf6f4c6de72" controls width="100%"></video>
 </td>
-<td align="center" width="33.33%">
-  <video src="https://github.com/user-attachments/assets/8b02d26f-9b15-4961-b17a-74f915329021" controls width="100%"></video>
+<td align="center" width="33%">
+  <video src="https://github.com/user-attachments/assets/427ecd8b-c3ff-471c-bd39-d64fd76dfc79" controls width="100%"></video>
 </td>
 </tr>
 </table>

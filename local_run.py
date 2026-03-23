@@ -448,7 +448,7 @@ def main():
         print(f"✅ Shot plan generated successfully in {stage_times['screenwriter']:.1f}s!")
         print(f"💾 Output saved to: {shot_plan_output_path}")
         print(f"{'='*80}\n")
-
+w
     # Step 6: Run EditorCoreAgent to select video clips based on shot plan
     # Check if we have all required files for core agent
     if os.path.exists(scene_summaries_dir) and os.path.exists(audio_caption_file) and os.path.exists(shot_plan_output_path):
