@@ -2,7 +2,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="asset/CutClaw_dark.png" />
-  <source media="(prefers-color-scheme: light)" srcset="asset/Cutclaw_light.png" />
+  <source media="(prefers-color-scheme: light)" srcset="asset/CutClaw_light.png" />
   <img src="asset/Cutclaw_light.png" alt="CutClaw teaser" width="50%" />
 </picture>
 

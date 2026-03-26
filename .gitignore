@@ -41,3 +41,4 @@ resource/subtitle/*
 !resource/subtitle/.gitkeep
 src/config_my.py
 asset/demo_compressed
+ProVideo
