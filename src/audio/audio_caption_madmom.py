@@ -1,3 +1,5 @@
+# Original Author: Shifang Zhao
+# Optimized by: Pengo0o (Focus: Acceleration)
 """
 Audio Caption Module using Madmom-based Segmentation
 
