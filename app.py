@@ -19,6 +19,10 @@ SHOT_LENGTH_RANGE_CAP_SEC = 1.0
 
 def _read_config() -> dict:
     """Read key=value pairs from config.py as strings."""
+    # Lightweight parser for uppercase assignment lines in config.py.
+    # 轻量解析器：读取 config.py 中的大写赋值项。
+    # UI uses it as a simple persisted key-value store.
+    # UI 将其当作一个简单持久化键值存储来使用。
     vals = {}
     with open(CONFIG_PATH, "r") as f:
         for line in f:
@@ -42,7 +46,10 @@ def save_config(key: str, value: str):
     """Overwrite a single key in config.py."""
     with open(CONFIG_PATH, "r") as f:
         content = f.read()
-    # Determine whether to quote: if original had quotes or value is not numeric
+    # Persist user edits from Streamlit sidebar back to config.py.
+    # 将 Streamlit 侧边栏修改持久化回 config.py。
+    # Numeric values are written as numbers; others are quoted strings.
+    # 数值按数字写入，其它值按字符串加引号写入。
     try:
         float(value)
         new_val = value
@@ -461,6 +468,10 @@ def start_pipeline(video_path, audio_path, instruction, video_type, main_charact
                    video_analysis_model, video_analysis_endpoint, video_analysis_api_key,
                    audio_litellm_model, audio_litellm_base_url, audio_litellm_api_key,
                    agent_litellm_model, agent_litellm_url, agent_litellm_api_key):
+    # UI runner: translate form fields into one local_run.py invocation.
+    # UI 运行入口：把表单参数转换为一次 local_run.py 调用。
+    # This keeps app.py thin while local_run.py remains the pipeline authority.
+    # 这样 app.py 保持轻量，流水线权威逻辑集中在 local_run.py。
     # Calculate min and max duration based on target length
     min_duration = max(5.0, target_length - 5.0)
     max_duration = target_length + 5.0
@@ -494,7 +505,8 @@ def start_pipeline(video_path, audio_path, instruction, video_type, main_charact
     if srt_path.strip():
         cmd += ["--SRT_Path", srt_path.strip()]
 
-    # Set PYTHONUNBUFFERED to force immediate stdout flushing
+    # Force unbuffered logs so Streamlit can display stage progress in near real time.
+    # 强制日志无缓冲输出，便于 Streamlit 近实时展示阶段进度。
     env = os.environ.copy()
     env["PYTHONUNBUFFERED"] = "1"
 
@@ -562,6 +574,8 @@ _TIME_RE = re.compile(r"[Cc]ompleted in ([\d.]+)s")
 
 
 def parse_stage_from_line(line: str, stage_status: dict, stage_times: dict):
+    # Parse stdout logs into structured stage status for live graph rendering.
+    # 将 stdout 日志解析为结构化阶段状态，用于实时流程图渲染。
     for stage, kw in _STAGE_STARTS.items():
         if kw in line and stage_status.get(stage) == "pending":
             stage_status[stage] = "running"
@@ -767,6 +781,8 @@ def pipeline_monitor():
     if st.session_state.running:
         q = st.session_state.log_queue
         proc = st.session_state.process
+        # Drain subprocess log queue each tick and update UI state machine.
+        # 每个刷新周期都消费子进程日志队列并更新 UI 状态机。
         while True:
             try:
                 line = q.get_nowait()
